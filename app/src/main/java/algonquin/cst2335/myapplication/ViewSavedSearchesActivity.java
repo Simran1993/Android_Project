@@ -1,10 +1,12 @@
 package algonquin.cst2335.myapplication;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -67,16 +69,25 @@ public class ViewSavedSearchesActivity extends AppCompatActivity {
     }
 
     private void deleteSearchHistory() {
-        // Clear the search history list and notify the adapter
-        searchHistory.clear();
-        adapter.notifyDataSetChanged();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Confirm Delete")
+                .setMessage("Are you sure you want to delete the search history?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        searchHistory.clear();
+                        adapter.notifyDataSetChanged();
 
-        // Delete search history from the database
-        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-        new Thread(() -> {
-            db.searchEntryDao().deleteAll();
-        }).start();
-        Snackbar.make(deleteButton, "Search history deleted", Snackbar.LENGTH_LONG).show();
+                        // Delete search history from the database
+                        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+                        new Thread(() -> {
+                            db.searchEntryDao().deleteAll();
+                        }).start();
+                        Snackbar.make(deleteButton, "Search history deleted", Snackbar.LENGTH_LONG).show();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }
 
