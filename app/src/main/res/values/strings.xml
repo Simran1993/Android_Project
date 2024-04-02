@@ -1,4 +1,11 @@
 <resources>
+    <string name="app_name_s">My Application</string>
+    <string name="enter_latitude">Enter Latitude</string>
+    <string name="enter_longitude">Enter longitude</string>
+    <string name="get_sunrise_sunset">Get time</string>
+    <string name="help_title">How to use</string>
+    <string name="help_message_sunrise_sunset">Enter latitude and longitude in the text fields and click on the button to see the sunrise and sunset time</string>
+    <string name="show_saved_lookups">History</string>
     <string name="save_song">Favorite</string>
     <string name="duration">Duration</string>
     <string name="album_name">Album Name</string>

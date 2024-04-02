@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -18,10 +21,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+
+        <!-- Make MainActivity the launcher activity -->
         <activity android:name=".ViewSavedSearchesActivity"/>
         <activity android:name=".FavoriteListsActivity"/>
         <activity android:name=".SearchHistoryActivity"/>
         <activity android:name=".DetailsActivity"/>
+        <activity android:name=".SunriseMainActivity"/>
         <activity
             android:name=".SongMainActivity"
             android:exported="true">
@@ -30,6 +36,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <!-- Declaration for SavedLookupsActivity -->
+        <activity
+            android:name=".SavedView"
+            android:exported="false">
+            <!-- No intent-filter needed here unless this activity
+            is intended to handle implicit intents or should be exposed to other apps. -->
         </activity>
     </application>
 

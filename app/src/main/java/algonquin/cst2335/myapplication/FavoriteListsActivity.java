@@ -17,7 +17,8 @@ import androidx.room.Room;
 import java.util.ArrayList;
 import java.util.List;
 
-import algonquin.cst2335.myapplication.Database.*;
+import algonquin.cst2335.myapplication.Database.Database;
+import algonquin.cst2335.myapplication.Database.SongDataBeans;
 
 public class FavoriteListsActivity extends AppCompatActivity {
     private ListView listView;
