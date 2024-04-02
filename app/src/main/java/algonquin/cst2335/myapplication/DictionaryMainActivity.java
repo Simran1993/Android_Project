@@ -140,7 +140,7 @@ public class DictionaryMainActivity extends AppCompatActivity {
         AppDatabase db = AppDatabase.getDatabase(this);
         new Thread(() -> db.searchEntryDao().insert(searchEntry)).start(); // Save to database in a background thread
 
-        Toast.makeText(this, "Search term saved: " + searchTerm, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Search term saved: " + searchTerm, Toast.LENGTH_SHORT).show();
     }
 
 
