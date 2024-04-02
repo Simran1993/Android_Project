@@ -4,6 +4,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,13 +18,21 @@
         android:icon="@drawable/ic_launcher_background"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:label="@string/app_name_Song"
+        android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
 
         <!-- Make MainActivity the launcher activity -->
+        <activity android:name=".ViewSavedSearchesActivity"/>
+        <activity android:name=".FavoriteListsActivity"/>
+        <activity android:name=".SearchHistoryActivity"/>
+        <activity android:name=".DetailsActivity"/>
         <activity
             android:name=".SunriseMainActivity"
+            android:name=".SongMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,4 +49,5 @@
             is intended to handle implicit intents or should be exposed to other apps. -->
         </activity>
     </application>
+
 </manifest>
