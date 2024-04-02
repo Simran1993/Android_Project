@@ -11,7 +11,7 @@
     <string name="song_selected">"Song selected: "</string>
     <string name="ok">OK</string>
     <string name="delete">Delete</string>
-    <string name="app_name">Song Search</string>
+    <string name="app_name_Song">Song Search</string>
 
     <string name="app_name">Dictionary</string>
 </resources>
