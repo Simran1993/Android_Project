@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
+import algonquin.cst2335.myapplication.DictonaryDatabase.SearchEntry;
+
 
 public class SavedSearchesAdapter extends RecyclerView.Adapter<SavedSearchesAdapter.SearchEntryViewHolder> {
     private List<SearchEntry> searchEntries;

@@ -23,6 +23,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
+import algonquin.cst2335.myapplication.DictonaryDatabase.AppDatabase;
+import algonquin.cst2335.myapplication.DictonaryDatabase.SearchEntry;
+
 
 public class DictionaryMainActivity extends AppCompatActivity {
     EditText etSearchTerm;

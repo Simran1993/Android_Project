@@ -14,7 +14,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#1995AD"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -22,6 +22,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#A1D6E2"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -47,9 +48,10 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvDefinitions"
-            android:layout_width="350dp"
+            android:layout_width="378dp"
             android:layout_height="400dp"
             android:layout_weight="1"
+            android:background="#B9DBE3"
             tools:listitem="@layout/definition_item" />
 
         <Button
