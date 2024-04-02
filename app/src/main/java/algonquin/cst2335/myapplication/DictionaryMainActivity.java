@@ -49,6 +49,13 @@ public class DictionaryMainActivity extends AppCompatActivity {
         adapter = new DefinitionsAdapter(definitionList);
         rvDefinitions.setAdapter(adapter);
 
+
+        String searchTerm = getIntent().getStringExtra("searchTerm");
+        if (searchTerm != null) {
+            etSearchTerm.setText(searchTerm); // Set the search term in EditText
+            fetchDefinitions(searchTerm); // Fetch definitions for the selected term
+        }
+
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,6 +139,8 @@ public class DictionaryMainActivity extends AppCompatActivity {
 
         AppDatabase db = AppDatabase.getDatabase(this);
         new Thread(() -> db.searchEntryDao().insert(searchEntry)).start(); // Save to database in a background thread
+
+        Toast.makeText(this, "Search term saved: " + searchTerm, Toast.LENGTH_SHORT).show();
     }
 
 

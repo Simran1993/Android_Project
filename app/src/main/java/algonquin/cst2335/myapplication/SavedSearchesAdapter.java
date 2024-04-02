@@ -14,9 +14,12 @@ public class SavedSearchesAdapter extends RecyclerView.Adapter<SavedSearchesAdap
     private List<SearchEntry> searchEntries;
     private LayoutInflater mInflater;
 
-    public SavedSearchesAdapter(Context context, List<SearchEntry> searchEntries) {
+    private OnItemClickListener mListener;
+
+    public SavedSearchesAdapter(Context context, List<SearchEntry> searchEntries, OnItemClickListener listener) {
         this.mInflater = LayoutInflater.from(context);
         this.searchEntries = searchEntries;
+        this.mListener = listener; // Initialize listener
     }
 
     @NonNull
@@ -28,8 +31,9 @@ public class SavedSearchesAdapter extends RecyclerView.Adapter<SavedSearchesAdap
 
     @Override
     public void onBindViewHolder(@NonNull SearchEntryViewHolder holder, int position) {
-        holder.searchTermTextView.setText(searchEntries.get(position).searchTerm);
-        // You can also set onClickListener here if you want to add interaction
+        String searchTerm = searchEntries.get(position).searchTerm;
+        holder.searchTermTextView.setText(searchTerm);
+        holder.itemView.setOnClickListener(v -> mListener.onItemClick(searchTerm)); // Handle item click
     }
 
     @Override
@@ -37,7 +41,7 @@ public class SavedSearchesAdapter extends RecyclerView.Adapter<SavedSearchesAdap
         return searchEntries.size();
     }
 
-    public static class SearchEntryViewHolder extends RecyclerView.ViewHolder {
+    static class SearchEntryViewHolder extends RecyclerView.ViewHolder {
         TextView searchTermTextView;
 
         public SearchEntryViewHolder(@NonNull View itemView) {
@@ -45,4 +49,8 @@ public class SavedSearchesAdapter extends RecyclerView.Adapter<SavedSearchesAdap
             searchTermTextView = itemView.findViewById(R.id.tvSearchTerm);
         }
     }
+    public interface OnItemClickListener {
+        void onItemClick(String searchTerm);
+    }
+
 }

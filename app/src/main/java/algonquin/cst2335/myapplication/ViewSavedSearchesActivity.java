@@ -1,5 +1,6 @@
 package algonquin.cst2335.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,9 +26,20 @@ public class ViewSavedSearchesActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.yourRecyclerViewId);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new SavedSearchesAdapter(this, searchHistory);
         recyclerView.setAdapter(adapter);
         deleteButton = findViewById(R.id.Delete_button);
+
+        adapter = new SavedSearchesAdapter(this, searchHistory, new SavedSearchesAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(String searchTerm) {
+                // Start DictionaryMainActivity with the selected search term
+                Intent intent = new Intent(ViewSavedSearchesActivity.this, DictionaryMainActivity.class);
+                intent.putExtra("searchTerm", searchTerm);
+                startActivity(intent);
+            }
+        });
+
+        recyclerView.setAdapter(adapter);
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
