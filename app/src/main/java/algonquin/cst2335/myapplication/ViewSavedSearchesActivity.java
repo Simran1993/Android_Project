@@ -16,9 +16,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 
-import algonquin.cst2335.myapplication.DictonaryDatabase.AppDatabase;
-import algonquin.cst2335.myapplication.DictonaryDatabase.SearchEntry;
-
 public class ViewSavedSearchesActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     SavedSearchesAdapter adapter;

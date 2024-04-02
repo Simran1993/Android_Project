@@ -1,4 +1,4 @@
-package algonquin.cst2335.myapplication.DictonaryDatabase;
+package algonquin.cst2335.myapplication;
 
 
 import android.content.Context;
