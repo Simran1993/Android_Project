@@ -1,5 +1,13 @@
 package algonquin.cst2335.myapplication;
-
+/**
+ * DictionaryMainActivity is the main activity class responsible for displaying a dictionary application interface,
+ * allowing users to search for word definitions and view saved searches.
+ * This activity utilizes a RecyclerView to display the fetched word definitions.
+ *
+ * @author Harsimranjit Singh
+ * @version 1.0
+ * @since 2024-04-02
+ */
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +39,12 @@ public class DictionaryMainActivity extends AppCompatActivity {
     RecyclerView rvDefinitions;
     DefinitionsAdapter adapter;
     List<Definition> definitionList = new ArrayList<>();
+
+    /**
+     * Called when the activity is starting. This is where most initialization should go.
+     *
+     * @param savedInstanceState A Bundle containing the activity's previously saved state, if any.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +97,11 @@ public class DictionaryMainActivity extends AppCompatActivity {
         });
 
     }
-
+    /**
+     * Fetches word definitions from the API for the given search term.
+     *
+     * @param term The search term for which definitions are to be fetched.
+     */
     private void fetchDefinitions(String term) {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + term;
@@ -128,7 +146,11 @@ public class DictionaryMainActivity extends AppCompatActivity {
         });
 
         queue.add(stringRequest);
-    }
+    }/**
+     * Saves the search term and its associated definitions to the database.
+     *
+     * @param searchTerm The search term to be saved.
+     */
     private void saveSearchTerm(String searchTerm) {
         Gson gson = new Gson();
         String definitionsJson = gson.toJson(definitionList); // Convert list of definitions to JSON String
