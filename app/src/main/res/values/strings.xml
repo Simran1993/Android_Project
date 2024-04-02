@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name_s">My Application</string>
     <string name="enter_latitude">Enter Latitude</string>
     <string name="enter_longitude">Enter longitude</string>
     <string name="get_sunrise_sunset">Get time</string>

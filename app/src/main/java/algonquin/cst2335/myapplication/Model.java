@@ -31,8 +31,8 @@ public class Model extends AndroidViewModel {
 
     public Model(@NonNull Application application) {
         super(application);
-        Database database = Database.getInstance(application);
-        lookupDAO = database.lookupDAO();
+        SunDatabase sunDatabase = SunDatabase.getInstance(application);
+        lookupDAO = sunDatabase.lookupDAO();
         allLookups = lookupDAO.getAllLookups();
     }
     /**
@@ -41,7 +41,7 @@ public class Model extends AndroidViewModel {
      * @param lookup The {@link Lookup} entity to be inserted.
      */
     public void insert(Lookup lookup) {
-        Database.databaseWriteExecutor.execute(() -> lookupDAO.insert(lookup));
+        SunDatabase.databaseWriteExecutor.execute(() -> lookupDAO.insert(lookup));
     }
     /**
      * Retrieves a LiveData list of all {@link Lookup} entries from the database.
@@ -56,7 +56,7 @@ public class Model extends AndroidViewModel {
      * Clears all {@link Lookup} entries from the database asynchronously.
      */
     public void clearAllLookups() {
-        Database.databaseWriteExecutor.execute(() -> lookupDAO.deleteAll());
+        SunDatabase.databaseWriteExecutor.execute(() -> lookupDAO.deleteAll());
     }
 
 }

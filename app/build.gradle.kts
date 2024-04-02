@@ -33,14 +33,12 @@ val room_version = "2.5.2"
 implementation ("androidx.room:room-runtime:$room_version")
 annotationProcessor ("androidx.room:room-compiler:$room_version")
     implementation ("com.android.volley:volley:1.2.1")
-dependencies {
-    val room_version = "2.6.1"
+
+    val room_version1 = "2.6.1"
     implementation ("com.android.volley:volley:1.2.1")
-}
-val room_version = ("2.6.1")
-dependencies {
-    implementation ("androidx.room:room-runtime:$room_version")
-    annotationProcessor ("androidx.room:room-compiler:$room_version")
+
+    implementation ("androidx.room:room-runtime:$room_version1")
+    annotationProcessor ("androidx.room:room-compiler:$room_version1")
 
     implementation("androidx.mediarouter:mediarouter:1.7.0")
     implementation("androidx.appcompat:appcompat:1.6.1")

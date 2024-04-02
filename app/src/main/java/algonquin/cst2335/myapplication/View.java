@@ -1,7 +1,6 @@
 package algonquin.cst2335.myapplication;
 
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 /**
