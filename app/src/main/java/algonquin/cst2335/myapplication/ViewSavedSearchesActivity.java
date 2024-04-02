@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,6 +76,7 @@ public class ViewSavedSearchesActivity extends AppCompatActivity {
         new Thread(() -> {
             db.searchEntryDao().deleteAll();
         }).start();
+        Snackbar.make(deleteButton, "Search history deleted", Snackbar.LENGTH_LONG).show();
     }
 }
 
