@@ -1,8 +1,10 @@
 package algonquin.cst2335.myapplication;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import algonquin.cst2335.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {
 
