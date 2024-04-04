@@ -16,7 +16,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
-import algonquin.cst2335.myapplication.Database.Database;
+import algonquin.cst2335.myapplication.Database.*;
 
 /**
  * The activity that manages the search history. It allows the user to delete all search history records from the database.

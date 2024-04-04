@@ -20,7 +20,6 @@ import androidx.room.Room;
 
 import com.squareup.picasso.Picasso;
 
-
 import algonquin.cst2335.myapplication.Database.*;
 
 public class DetailsActivity extends AppCompatActivity {
