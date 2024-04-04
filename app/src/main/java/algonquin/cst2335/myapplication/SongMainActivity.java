@@ -41,8 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import algonquin.cst2335.myapplication.Database.Database;
-import algonquin.cst2335.myapplication.Database.HistoryBeans;
-import algonquin.cst2335.myapplication.Database.HistoryDAO;
+import algonquin.cst2335.myapplication.Database.*;
 
 
 public class SongMainActivity extends AppCompatActivity implements SongAdapter.OnItemClickListener {

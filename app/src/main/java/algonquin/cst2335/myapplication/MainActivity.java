@@ -1,4 +1,3 @@
-
 package algonquin.cst2335.myapplication;
 
 import android.os.Bundle;
