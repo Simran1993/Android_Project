@@ -8,8 +8,11 @@ package algonquin.cst2335.myapplication;
  * @version 1.0
  * @since 2024-04-02
  */
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -97,6 +102,11 @@ public class DictionaryMainActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_menu, menu);
+        return true;
+    }
     /**
      * Fetches word definitions from the API for the given search term.
      *
@@ -163,6 +173,32 @@ public class DictionaryMainActivity extends AppCompatActivity {
         new Thread(() -> db.searchEntryDao().insert(searchEntry)).start(); // Save to database in a background thread
 
         //Toast.makeText(this, "Search term saved: " + searchTerm, Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.help) {
+            // Build and show the alert dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Help");
+            builder.setMessage("This is the help message. i am here to help.");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Dismiss the dialog when the "OK" button is clicked
+                    dialog.dismiss();
+                }
+            });
+
+            // Create and show the dialog
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
